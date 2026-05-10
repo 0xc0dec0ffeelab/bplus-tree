@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../bplus-tree-benchmark/bplus-tree-benchmark.csproj" />
+  <Project Path="../bplus-tree-test/bplus-tree-test.csproj" />
+  <Project Path="bplus-tree.csproj" />
+</Solution>

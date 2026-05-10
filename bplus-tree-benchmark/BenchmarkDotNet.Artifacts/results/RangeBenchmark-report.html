@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>RangeBenchmark-20260510-230052</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.15.2, Windows 11 (10.0.26200.8246)
+11th Gen Intel Core i7-11800H 2.30GHz, 1 CPU, 16 logical and 8 physical cores
+.NET SDK 10.0.203
+  [Host]     : .NET 10.0.7 (10.0.726.21808), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  DefaultJob : .NET 10.0.7 (10.0.726.21808), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method                </th><th>Ratio</th><th>N</th><th>Mean     </th><th>Error    </th><th>StdDev    </th><th>Median   </th><th>Ratio</th><th>RatioSD</th><th>Rank</th><th>Gen0</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>&#39;BPT  Range&#39;</td><td>0.01</td><td>10000</td><td>661.7 ns</td><td>5.25 ns</td><td>4.10 ns</td><td>660.8 ns</td><td>1.00</td><td>0.01</td><td>2</td><td>0.0057</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.01</td><td>10000</td><td>426.0 ns</td><td>8.47 ns</td><td>11.02 ns</td><td>423.1 ns</td><td>0.64</td><td>0.02</td><td>1</td><td>0.0210</td><td>264 B</td><td>3.67</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.01</td><td>10000</td><td>112,908.2 ns</td><td>2,090.32 ns</td><td>1,955.28 ns</td><td>112,504.3 ns</td><td>170.63</td><td>3.03</td><td>3</td><td>-</td><td>432 B</td><td>6.00</td>
+</tr><tr><td>&#39;BPT  Range&#39;</td><td>0.01</td><td>100000</td><td>6,569.7 ns</td><td>124.37 ns</td><td>148.06 ns</td><td>6,568.1 ns</td><td>1.00</td><td>0.03</td><td>2</td><td>-</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.01</td><td>100000</td><td>4,206.4 ns</td><td>78.16 ns</td><td>69.29 ns</td><td>4,224.4 ns</td><td>0.64</td><td>0.02</td><td>1</td><td>0.0229</td><td>312 B</td><td>4.33</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.01</td><td>100000</td><td>1,999,661.0 ns</td><td>99,957.66 ns</td><td>293,158.53 ns</td><td>1,923,534.4 ns</td><td>304.52</td><td>44.94</td><td>3</td><td>-</td><td>480 B</td><td>6.67</td>
+</tr><tr><td>&#39;BPT  Range&#39;</td><td>0.01</td><td>1000000</td><td>65,041.6 ns</td><td>80.86 ns</td><td>75.64 ns</td><td>65,057.1 ns</td><td>1.00</td><td>0.00</td><td>1</td><td>-</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.01</td><td>1000000</td><td>115,901.6 ns</td><td>2,295.65 ns</td><td>3,142.32 ns</td><td>114,992.2 ns</td><td>1.78</td><td>0.05</td><td>2</td><td>-</td><td>360 B</td><td>5.00</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.01</td><td>1000000</td><td>86,568,110.1 ns</td><td>5,028,702.75 ns</td><td>14,748,315.74 ns</td><td>81,799,016.7 ns</td><td>1,330.97</td><td>225.69</td><td>3</td><td>-</td><td>528 B</td><td>7.33</td>
+</tr><tr><td>&#39;BPT  Range&#39;</td><td>0.1</td><td>10000</td><td>6,404.2 ns</td><td>39.48 ns</td><td>36.93 ns</td><td>6,396.2 ns</td><td>1.00</td><td>0.01</td><td>2</td><td>-</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.1</td><td>10000</td><td>4,136.0 ns</td><td>81.83 ns</td><td>122.48 ns</td><td>4,122.5 ns</td><td>0.65</td><td>0.02</td><td>1</td><td>0.0153</td><td>264 B</td><td>3.67</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.1</td><td>10000</td><td>111,437.9 ns</td><td>2,187.29 ns</td><td>2,045.99 ns</td><td>110,866.7 ns</td><td>17.40</td><td>0.32</td><td>3</td><td>-</td><td>432 B</td><td>6.00</td>
+</tr><tr><td>&#39;BPT  Range&#39;</td><td>0.1</td><td>100000</td><td>67,306.0 ns</td><td>922.22 ns</td><td>817.52 ns</td><td>67,364.9 ns</td><td>1.00</td><td>0.02</td><td>1</td><td>-</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.1</td><td>100000</td><td>67,711.7 ns</td><td>1,343.34 ns</td><td>1,883.17 ns</td><td>67,651.4 ns</td><td>1.01</td><td>0.03</td><td>1</td><td>-</td><td>312 B</td><td>4.33</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.1</td><td>100000</td><td>1,919,947.5 ns</td><td>56,988.20 ns</td><td>165,333.11 ns</td><td>1,901,720.3 ns</td><td>28.53</td><td>2.47</td><td>2</td><td>-</td><td>480 B</td><td>6.67</td>
+</tr><tr><td>&#39;BPT  Range&#39;</td><td>0.1</td><td>1000000</td><td>706,253.9 ns</td><td>13,750.86 ns</td><td>19,276.79 ns</td><td>709,515.2 ns</td><td>1.00</td><td>0.04</td><td>1</td><td>-</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.1</td><td>1000000</td><td>2,494,941.6 ns</td><td>229,775.53 ns</td><td>677,498.39 ns</td><td>2,335,689.6 ns</td><td>3.54</td><td>0.96</td><td>2</td><td>-</td><td>360 B</td><td>5.00</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.1</td><td>1000000</td><td>81,340,480.2 ns</td><td>3,848,733.06 ns</td><td>11,348,077.10 ns</td><td>76,546,120.0 ns</td><td>115.25</td><td>16.31</td><td>3</td><td>-</td><td>528 B</td><td>7.33</td>
+</tr><tr><td>&#39;BPT  Range&#39;</td><td>0.5</td><td>10000</td><td>32,583.0 ns</td><td>564.54 ns</td><td>500.45 ns</td><td>32,618.4 ns</td><td>1.00</td><td>0.02</td><td>2</td><td>-</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.5</td><td>10000</td><td>19,424.5 ns</td><td>278.42 ns</td><td>246.81 ns</td><td>19,365.2 ns</td><td>0.60</td><td>0.01</td><td>1</td><td>-</td><td>264 B</td><td>3.67</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.5</td><td>10000</td><td>115,417.5 ns</td><td>2,103.48 ns</td><td>1,967.60 ns</td><td>115,386.2 ns</td><td>3.54</td><td>0.08</td><td>3</td><td>-</td><td>432 B</td><td>6.00</td>
+</tr><tr><td>&#39;BPT  Range&#39;</td><td>0.5</td><td>100000</td><td>334,566.2 ns</td><td>5,024.97 ns</td><td>4,196.08 ns</td><td>333,338.1 ns</td><td>1.00</td><td>0.02</td><td>1</td><td>-</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.5</td><td>100000</td><td>556,349.1 ns</td><td>10,858.89 ns</td><td>11,618.89 ns</td><td>554,630.2 ns</td><td>1.66</td><td>0.04</td><td>2</td><td>-</td><td>312 B</td><td>4.33</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.5</td><td>100000</td><td>2,055,044.8 ns</td><td>35,846.81 ns</td><td>38,355.69 ns</td><td>2,042,421.3 ns</td><td>6.14</td><td>0.13</td><td>3</td><td>-</td><td>480 B</td><td>6.67</td>
+</tr><tr><td>&#39;BPT  Range&#39;</td><td>0.5</td><td>1000000</td><td>5,081,146.5 ns</td><td>101,525.00 ns</td><td>104,258.70 ns</td><td>5,086,757.8 ns</td><td>1.00</td><td>0.03</td><td>1</td><td>-</td><td>72 B</td><td>1.00</td>
+</tr><tr><td>&#39;SD   Range (foreach+break)&#39;</td><td>0.5</td><td>1000000</td><td>20,568,149.4 ns</td><td>409,655.03 ns</td><td>661,516.57 ns</td><td>20,532,662.5 ns</td><td>4.05</td><td>0.15</td><td>2</td><td>-</td><td>360 B</td><td>5.00</td>
+</tr><tr><td>&#39;SD   Range (LINQ)&#39;</td><td>0.5</td><td>1000000</td><td>93,972,966.2 ns</td><td>3,391,760.40 ns</td><td>9,621,860.42 ns</td><td>95,041,960.0 ns</td><td>18.50</td><td>1.92</td><td>3</td><td>-</td><td>528 B</td><td>7.33</td>
+</tr></tbody></table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DeleteBenchmark-20260510-224838</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.15.2, Windows 11 (10.0.26200.8246)
+11th Gen Intel Core i7-11800H 2.30GHz, 1 CPU, 16 logical and 8 physical cores
+.NET SDK 10.0.203
+  [Host]     : .NET 10.0.7 (10.0.726.21808), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  Job-CNUJVU : .NET 10.0.7 (10.0.726.21808), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method      </th><th>N</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Ratio</th><th>RatioSD</th><th>Rank</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>&#39;BPT  Delete rand&#39;</td><td>10000</td><td>1.869 ms</td><td>0.3670 ms</td><td>1.0821 ms</td><td>1.061 ms</td><td>1.32</td><td>1.02</td><td>2</td><td>-</td><td>NA</td>
+</tr><tr><td>&#39;SD   Delete rand&#39;</td><td>10000</td><td>1.866 ms</td><td>0.0286 ms</td><td>0.0239 ms</td><td>1.862 ms</td><td>1.32</td><td>0.58</td><td>1</td><td>-</td><td>NA</td>
+</tr><tr><td>&#39;BPT  Delete rand&#39;</td><td>100000</td><td>11.511 ms</td><td>0.2242 ms</td><td>0.3684 ms</td><td>11.395 ms</td><td>1.00</td><td>0.04</td><td>1</td><td>-</td><td>NA</td>
+</tr><tr><td>&#39;SD   Delete rand&#39;</td><td>100000</td><td>19.802 ms</td><td>0.2949 ms</td><td>0.2462 ms</td><td>19.744 ms</td><td>1.72</td><td>0.06</td><td>2</td><td>-</td><td>NA</td>
+</tr><tr><td>&#39;BPT  Delete rand&#39;</td><td>1000000</td><td>174.692 ms</td><td>3.2680 ms</td><td>3.3560 ms</td><td>173.401 ms</td><td>1.00</td><td>0.03</td><td>1</td><td>-</td><td>NA</td>
+</tr><tr><td>&#39;SD   Delete rand&#39;</td><td>1000000</td><td>492.445 ms</td><td>9.7725 ms</td><td>24.5173 ms</td><td>491.623 ms</td><td>2.82</td><td>0.15</td><td>2</td><td>-</td><td>NA</td>
+</tr></tbody></table>
+</body>
+</html>
